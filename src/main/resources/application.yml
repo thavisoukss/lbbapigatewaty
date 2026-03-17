@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  codec:
+    max-in-memory-size: 10MB
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: customer_service_route
+#          uri: http://localhost:8081      # ບ່ອນຢູ່ຂອງ Customer Service
+#          predicates:
+#            - Path=/api/customers/** # ຖ້າ User ເອີ້ນ Path ນີ້ ໃຫ້ສົ່ງຕໍ່ໄປ Port 8081
+logging:
+  config: classpath:log4j2.xml
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # ເກັບ Trace ທຸກ Request (ຖ້າໃຊ້ໃນ Production ຕົວຈິງອາດຈະປັບເປັນ 0.1)
