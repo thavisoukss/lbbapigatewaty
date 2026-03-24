@@ -1,0 +1,31 @@
+# Development Configuration
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+services:
+  customer:
+    url: ${CUSTOMER_SERVICE_URL:http://customer-service:8081}
+  corebanking:
+    url: ${COREBANKING_SERVICE_URL:http://corebanking-service:8082}
+  deeplink:
+    url: ${DEEPLINK_SERVICE_URL:http://deeplink-service:8083}
+  lmps:
+    url: ${LMPS_SERVICE_URL:http://lmps-service:8084}
+
+logging:
+  config: classpath:log4j2.xml
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # ເກັບ Trace ທຸກ Request (ຖ້າໃຊ້ໃນ Production ຕົວຈິງອາດຈະປັບເປັນ 0.1)
