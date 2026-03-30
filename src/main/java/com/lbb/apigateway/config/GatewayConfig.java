@@ -31,11 +31,11 @@ public class GatewayConfig {
                                            MyLogResponseRewriteFunction responseLog) {
         return builder.routes()
                 .route("customer_service_route", r -> r.path("/api/customers/**")
-                        .filters(f -> f
-
-                                .modifyRequestBody(String.class, String.class, requestLog)
-                                .modifyResponseBody(String.class, String.class, responseLog)
-                        )
+//                        .filters(f -> f
+//
+//                                .modifyRequestBody(String.class, String.class, requestLog)
+//                                .modifyResponseBody(String.class, String.class, responseLog)
+//                        )
                         .uri(customerServiceUrl))
 
 

@@ -1,0 +1,27 @@
+# Production Configuration
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders: "*"
+services:
+  customer:
+    url: ${CUSTOMER_SERVICE_URL:http://localhost:8081}
+  corebanking:
+    url: ${COREBANKING_SERVICE_URL:http://localhost:8082}
+  deeplink:
+    url: ${DEEPLINK_SERVICE_URL:http://localhost:8083}
+  lmps:
+    url: ${LMPS_SERVICE_URL:http://localhost:8084}
+
+logging:
+  level:
+    root: WARN
+    com.lbb: INFO

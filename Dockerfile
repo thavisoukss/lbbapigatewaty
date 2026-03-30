@@ -40,3 +40,6 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 # docker build -t api-gateway:1.0.0 .
 # docker run -d --name api-gateway --network app-network -p 8080:8080 api-gateway:1.0.0
 
+#docker build --platform linux/amd64  -t 172.16.4.62:5000/customer/api-gateway:1.0.0
+#docker push 172.16.4.62:5000/customer/api-gateway:1.0.0
+
